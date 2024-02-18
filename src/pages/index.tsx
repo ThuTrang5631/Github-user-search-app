@@ -1,13 +1,11 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
+import SearchSection from "@/components/SearchSection/SearchSection";
 
 export default function Home() {
   return (
-    <>
-      {" "}
-      <button>hi</button>
-    </>
+    <main>
+      <div className="home__container">
+        <SearchSection />
+      </div>
+    </main>
   );
 }
