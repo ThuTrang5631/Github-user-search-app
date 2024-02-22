@@ -1,4 +1,5 @@
 import SearchSection from "@/components/SearchSection/SearchSection";
+import InfoCard from "@/components/InfoCard/InfoCard";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
           <button className="navbar__btn">LIGHT</button>
         </section>
         <SearchSection />
+        <InfoCard />
       </div>
     </main>
   );

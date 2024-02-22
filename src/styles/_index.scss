@@ -1,5 +1,6 @@
 @import "./variables";
 @import "./components/search-section";
+@import "./components/info-card";
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
 img {
@@ -58,7 +59,8 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  padding-bottom: 10px;
+  min-height: 100vh;
 }
 
 .home__container {
@@ -84,5 +86,24 @@ main {
       font-weight: 700;
       font-size: 13px;
     }
+  }
+}
+
+@media screen and (max-width: $breakpoint-xl) {
+  .home__container {
+    width: 65%;
+  }
+}
+//tablet
+@media screen and (max-width: $breakpoint-lg) {
+  .home__container {
+    width: 70%;
+  }
+}
+
+//mobile
+@media screen and (max-width: $breakpoint-md) {
+  .home__container {
+    width: 90%;
   }
 }
