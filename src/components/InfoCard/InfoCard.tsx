@@ -1,24 +1,6 @@
 const InfoCard = () => {
   return (
     <section className="info-card">
-      {/* <div className="info-card__left">
-        <img
-          className="info-card__left-image"
-          src="https://www.adorama.com/alc/wp-content/uploads/2017/11/shutterstock_114802408-825x465.jpg"
-          alt="avatar-user"
-        />
-      </div>
-      <div className="info-card__right">
-        <div className="info-card__right-header">
-          <div className="info-card__right-title">
-            <h2 className="info-card__right-name">The Octocat</h2>
-            <p className="info-card__right-username">@octocat</p>
-          </div>
-          <p className="info-card__right-date">
-            Joined <span> 25 Jan 2011</span>
-          </p>
-        </div>
-      </div> */}
       <div className="info-card__top">
         <div className="info-card__header">
           <div className="info-card__avatar">
