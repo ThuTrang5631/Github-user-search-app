@@ -18,7 +18,7 @@ const SearchSection = ({ onClick, onChange }: SearchSectionProps) => {
           type="text"
           className="search-section__input"
           placeholder="Search Github username..."
-          onChange={(e: any) => onChange(e.target.value)}
+          onChange={onChange}
         ></input>
       </div>
       <button className="search-section__btn" onClick={onClick}>

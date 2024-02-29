@@ -11,7 +11,7 @@ interface InfoCardProps {
   blog: string;
   twitter: string;
   company: string;
-  userName: string;
+  username: string;
 }
 
 const InfoCard = ({
@@ -27,7 +27,7 @@ const InfoCard = ({
   blog,
   twitter,
   company,
-  userName,
+  username,
 }: InfoCardProps) => {
   return (
     <section className="info-card">
@@ -42,7 +42,7 @@ const InfoCard = ({
               <a
                 className="info-card__header-username"
                 href={href}
-              >{`@${userName}`}</a>
+              >{`@${username}`}</a>
             </div>
             <p className="info-card__header-date">
               Joined <span> {date}</span>
