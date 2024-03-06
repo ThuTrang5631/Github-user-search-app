@@ -87,6 +87,12 @@ main {
       font-size: 13px;
     }
   }
+
+  .error {
+    color: $color-error;
+    display: flex;
+    justify-content: center;
+  }
 }
 
 @media screen and (max-width: $breakpoint-xl) {

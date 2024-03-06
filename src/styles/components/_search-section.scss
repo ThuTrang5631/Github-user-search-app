@@ -43,4 +43,15 @@
       background-color: $btn-hover;
     }
   }
+
+  .search-delete-icon {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    i {
+      color: $white;
+      font-size: 18px;
+    }
+  }
 }
