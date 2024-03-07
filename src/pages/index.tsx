@@ -6,12 +6,10 @@ export default function Home() {
   const [username, setUsername] = useState<string>("");
   const [result, setResult] = useState({});
   const [displayInfoCard, setDisplayInfoCard] = useState<boolean>(false);
+  const [isClear, setIsClear] = useState<boolean>(false);
   const ref = useRef(null);
 
-  console.log("length key", Object.keys(result).length);
-
   const handleSearch = () => {
-    console.log("value search", ref.current.value);
     setUsername(ref.current.value);
   };
 
@@ -28,13 +26,22 @@ export default function Home() {
       }
     } catch (error) {
       setDisplayInfoCard(false);
-      console.log("displayCard", displayInfoCard);
     }
   };
 
+  const handleChange = (e: any) => {
+    if (e.target.value) setIsClear(true);
+  };
+
+  const handleClear = () => {
+    ref.current.value = "";
+    setIsClear(false);
+  };
+
+
+
   useEffect(() => {
     if (username !== "") {
-      console.log("hi");
       console.log("username", username);
       getData();
     }
@@ -48,9 +55,11 @@ export default function Home() {
           <button className="navbar__btn">LIGHT</button>
         </section>
         <SearchSection
-          // onChange={(e) => setUsername(e.target.value)}
+          onChange={handleChange}
           onClick={handleSearch}
           inputRef={ref}
+          clearSearch={isClear}
+          onClear={handleClear}
         />
         {displayInfoCard && (
           <InfoCard

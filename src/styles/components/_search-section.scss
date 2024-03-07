@@ -45,9 +45,9 @@
   }
 
   .search-delete-icon {
-    cursor: pointer;
     display: flex;
     align-items: center;
+    background: transparent;
 
     i {
       color: $white;

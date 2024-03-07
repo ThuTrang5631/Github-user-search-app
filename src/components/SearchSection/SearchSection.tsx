@@ -5,6 +5,7 @@ interface SearchSectionProps {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   inputRef: any;
   clearSearch: any;
+  onClear: any;
 }
 
 const SearchSection = ({
@@ -12,6 +13,7 @@ const SearchSection = ({
   onChange,
   inputRef,
   clearSearch,
+  onClear,
 }: SearchSectionProps) => {
   return (
     <section className="search-section">
@@ -28,9 +30,11 @@ const SearchSection = ({
           onChange={onChange}
           ref={inputRef}
         ></input>
-        <span className="search-delete-icon">
-          <i className="fa-solid fa-xmark"></i>
-        </span>
+        {clearSearch && (
+          <button onClick={onClear} className="search-delete-icon">
+            <i className="fa-solid fa-xmark"></i>
+          </button>
+        )}
       </div>
       <button className="search-section__btn" onClick={onClick}>
         Search

@@ -92,6 +92,10 @@
     }
   }
 
+  .info-card__item {
+    width: 50%;
+  }
+
   .info-card__item-desc {
     display: flex;
     color: $bg-content;
@@ -107,8 +111,14 @@
       height: 20px;
     }
 
-    p {
+    p,
+    a {
       opacity: 0.75;
+      color: $bg-content;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
     }
   }
 
@@ -171,6 +181,10 @@
 
     .info-card__bottom {
       flex-direction: column;
+    }
+
+    .info-card__item {
+      width: 100%;
     }
 
     .info-card__item:first-child {
