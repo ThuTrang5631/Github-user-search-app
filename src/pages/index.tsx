@@ -8,21 +8,20 @@ export default function Home() {
   const [displayInfoCard, setDisplayInfoCard] = useState<boolean>(false);
   const [isClear, setIsClear] = useState<boolean>(false);
   const ref = useRef(null);
-  let getTheme: string;
+  let theme: string;
   if (typeof window !== "undefined") {
-    getTheme = localStorage.getItem("theme")! || "dark";
+    console.log("hihi");
+    theme = localStorage.getItem("theme")! || "dark";
   }
-  const [theme, setTheme] = useState();
+  console.log("theme", theme);
 
-  // if (typeof document !== "undefined") {
-  //   if (theme === "light") {
-  //     document.querySelector("body")?.classList.add("light");
-  //     document.querySelector("button").innerText = "DARK";
-  //   } else {
-  //     document.querySelector("body")?.classList.remove("light");
-  //     document.querySelector("button").innerText = "LIGHT";
-  //   }
-  // }
+  if (typeof document !== "undefined") {
+    if (theme === "light") {
+      document.querySelector("body")?.classList.add("light");
+    } else {
+      document.querySelector("body")?.classList.remove("light");
+    }
+  }
 
   const handleSearch = () => {
     setUsername(ref.current.value);
@@ -54,22 +53,16 @@ export default function Home() {
   };
 
   const handleSwitchTheme = () => {
-    // theme = theme === "dark" ? "light" : "dark";
-    // console.log("theme", theme);
-    // localStorage.setItem("theme", theme);
-    // if (theme === "light") {
-    //   document.querySelector("body")?.classList.add("light");
-    //   document.querySelector("button").innerText = "DARK";
-    // } else {
-    //   document.querySelector("body")?.classList.remove("light");
-    //   document.querySelector("button").innerText = "LIGHT";
-    // }
-    if (theme === "dark") {
-      setTheme("light");
-    } else {
-      setTheme("dark");
-    }
+    theme = theme === "dark" ? "light" : "dark";
+
     localStorage.setItem("theme", theme);
+    if (theme === "light") {
+      document.querySelector("body")?.classList.add("light");
+      document.querySelector("button").textContent = "DARK";
+    } else {
+      document.querySelector("body")?.classList.remove("light");
+      document.querySelector("button").textContent = "LIGHT";
+    }
   };
 
   useEffect(() => {
@@ -79,29 +72,17 @@ export default function Home() {
     }
   }, [username]);
 
-  useEffect(() => {
-    setTheme(getTheme);
-  }, []);
-
-  useEffect(() => {
-    console.log("hi");
-
-    if (theme === "light") {
-      document.querySelector("body")?.classList.add("light");
-      // document.querySelector("button").innerText = "DARK";
-    } else {
-      document.querySelector("body")?.classList.remove("light");
-      // document.querySelector("button").innerText = "LIGHT";
-    }
-  }, [theme]);
-
   return (
     <main>
       <div className="home__container">
         <section className="navbar">
           <h1 className="navbar__title">devfinder</h1>
-          <button onClick={handleSwitchTheme} className="navbar__btn">
-            {theme === "dark" ? "LIGHT" : "DARK"}
+          <button
+            suppressHydrationWarning
+            onClick={handleSwitchTheme}
+            className="navbar__btn"
+          >
+            {theme === "light" ? "DARK" : "LIGHT"}
           </button>
         </section>
         <SearchSection
