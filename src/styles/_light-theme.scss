@@ -1,0 +1,64 @@
+body.light {
+  background-color: $bg-main;
+}
+
+.light {
+  .home__container {
+    .navbar {
+      .navbar__title {
+        color: $text-color;
+      }
+
+      .navbar__btn {
+        color: $text-color;
+        background-image: url("../assets/icon-moon.svg");
+      }
+    }
+  }
+
+  .search-section {
+    background-color: $bg-content;
+
+    .search-section__input {
+      color: $text-color;
+
+      &::placeholder {
+        color: $text-color;
+      }
+    }
+  }
+
+  .info-card {
+    background-color: $bg-content;
+
+    .info-card__header {
+      color: $user-name-color;
+    }
+
+    .info-card__header-desc {
+      color: $text-color;
+    }
+
+    .info-card__middle-content {
+      background-color: $bg-main;
+    }
+
+    .info-card__middle-item {
+      .title {
+        color: $text-color;
+      }
+
+      .number {
+        color: $number-color;
+      }
+    }
+
+    .info-card__item-desc {
+      a,
+      p {
+        color: $text-color;
+        opacity: 1;
+      }
+    }
+  }
+}

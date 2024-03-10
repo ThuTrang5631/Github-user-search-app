@@ -1,6 +1,7 @@
 @import "./variables";
 @import "./components/search-section";
 @import "./components/info-card";
+@import "./light-theme";
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
 img {
@@ -32,6 +33,7 @@ p {
 body {
   margin: 0;
   font-family: "Space Mono", monospace;
+  background-color: $black;
 }
 
 html {
@@ -55,7 +57,7 @@ a {
 }
 
 main {
-  background-color: hsl(220, 40%, 13%);
+  // background-color: $black;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -113,3 +115,22 @@ main {
     width: 90%;
   }
 }
+// set light/dark
+// @media (prefers-color-scheme: light) {
+//   main {
+//     background-color: $bg-main;
+//   }
+
+//   .home__container {
+//     .navbar {
+//       .navbar__title {
+//         color: $text-color;
+//       }
+
+//       .navbar__btn {
+//         color: $text-color;
+//         background-image: url("../assets/icon-moon.svg");
+//       }
+//     }
+//   }
+// }

@@ -8,6 +8,21 @@ export default function Home() {
   const [displayInfoCard, setDisplayInfoCard] = useState<boolean>(false);
   const [isClear, setIsClear] = useState<boolean>(false);
   const ref = useRef(null);
+  let getTheme: string;
+  if (typeof window !== "undefined") {
+    getTheme = localStorage.getItem("theme")! || "dark";
+  }
+  const [theme, setTheme] = useState();
+
+  // if (typeof document !== "undefined") {
+  //   if (theme === "light") {
+  //     document.querySelector("body")?.classList.add("light");
+  //     document.querySelector("button").innerText = "DARK";
+  //   } else {
+  //     document.querySelector("body")?.classList.remove("light");
+  //     document.querySelector("button").innerText = "LIGHT";
+  //   }
+  // }
 
   const handleSearch = () => {
     setUsername(ref.current.value);
@@ -38,7 +53,24 @@ export default function Home() {
     setIsClear(false);
   };
 
-
+  const handleSwitchTheme = () => {
+    // theme = theme === "dark" ? "light" : "dark";
+    // console.log("theme", theme);
+    // localStorage.setItem("theme", theme);
+    // if (theme === "light") {
+    //   document.querySelector("body")?.classList.add("light");
+    //   document.querySelector("button").innerText = "DARK";
+    // } else {
+    //   document.querySelector("body")?.classList.remove("light");
+    //   document.querySelector("button").innerText = "LIGHT";
+    // }
+    if (theme === "dark") {
+      setTheme("light");
+    } else {
+      setTheme("dark");
+    }
+    localStorage.setItem("theme", theme);
+  };
 
   useEffect(() => {
     if (username !== "") {
@@ -47,12 +79,30 @@ export default function Home() {
     }
   }, [username]);
 
+  useEffect(() => {
+    setTheme(getTheme);
+  }, []);
+
+  useEffect(() => {
+    console.log("hi");
+
+    if (theme === "light") {
+      document.querySelector("body")?.classList.add("light");
+      // document.querySelector("button").innerText = "DARK";
+    } else {
+      document.querySelector("body")?.classList.remove("light");
+      // document.querySelector("button").innerText = "LIGHT";
+    }
+  }, [theme]);
+
   return (
     <main>
       <div className="home__container">
         <section className="navbar">
           <h1 className="navbar__title">devfinder</h1>
-          <button className="navbar__btn">LIGHT</button>
+          <button onClick={handleSwitchTheme} className="navbar__btn">
+            {theme === "dark" ? "LIGHT" : "DARK"}
+          </button>
         </section>
         <SearchSection
           onChange={handleChange}

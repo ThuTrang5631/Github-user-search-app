@@ -73,7 +73,6 @@
   .info-card__middle-content {
     padding: 18px 80px 18px 32px;
     background-color: $black;
-    color: $bg-content;
     border-radius: 15px;
     display: flex;
     justify-content: space-between;
@@ -84,11 +83,13 @@
     .title {
       font-size: 16px;
       margin-bottom: 10px;
+      color: $bg-content;
     }
 
     .number {
       font-weight: 700;
       font-size: 22px;
+      color: $bg-content;
     }
   }
 
@@ -192,3 +193,40 @@
     }
   }
 }
+
+// set light/dark
+// @media (prefers-color-scheme: light) {
+//   .info-card {
+//     background-color: $bg-content;
+
+//     .info-card__header {
+//       color: $user-name-color;
+//     }
+
+//     .info-card__header-desc {
+//       color: $text-color;
+//     }
+
+//     .info-card__middle-content {
+//       background-color: $bg-main;
+//     }
+
+//     .info-card__middle-item {
+//       .title {
+//         color: $text-color;
+//       }
+
+//       .number {
+//         color: $number-color;
+//       }
+//     }
+
+//     .info-card__item-desc {
+//       a,
+//       p {
+//         color: $text-color;
+//         opacity: 1;
+//       }
+//     }
+//   }
+// }
