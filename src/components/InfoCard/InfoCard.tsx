@@ -79,22 +79,22 @@ const InfoCard = ({
           <p className="info-card__header-desc">{bio}</p>
         </div>
       </div>
-      <div className="info-card__contain-middle">
-        <ul className="info-card__middle-content">
-          <li className="info-card__middle-item">
+      <div className="info-card__bottom">
+        <ul className="info-card__bottom-content">
+          <li className="info-card__bottom-item">
             <p className="title">Repos</p>
             <p className="number">{repos}</p>
           </li>
-          <li className="info-card__middle-item">
+          <li className="info-card__bottom-item">
             <p className="title">Followers</p>
             <p className="number">{follower}</p>
           </li>
-          <li className="info-card__middle-item">
+          <li className="info-card__bottom-item">
             <p className="title">Following</p>
             <p className="number">{following}</p>
           </li>
         </ul>
-        <div className="info-card__bottom">
+        <div className="info-card__media">
           <ul className="info-card__item">
             <li className="info-card__item-desc">
               <svg
