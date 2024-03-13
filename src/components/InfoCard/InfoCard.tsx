@@ -118,7 +118,10 @@ const InfoCard = ({
                 </g>
               </svg>
               <a href={blog}>
-                {blog ? blog.match(regExpDomain)[1] : "Not Available"}
+                {
+                  // @ts-ignore: Object is possibly 'null'.
+                  blog ? blog.match(regExpDomain)[1] : "Not Available"
+                }
               </a>
             </li>
           </ul>
