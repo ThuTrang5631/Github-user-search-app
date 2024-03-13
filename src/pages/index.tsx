@@ -10,10 +10,8 @@ export default function Home() {
   const ref = useRef(null);
   let theme: string;
   if (typeof window !== "undefined") {
-    console.log("hihi");
     theme = localStorage.getItem("theme")! || "dark";
   }
-  console.log("theme", theme);
 
   if (typeof document !== "undefined") {
     if (theme === "light") {
