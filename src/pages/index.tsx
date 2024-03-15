@@ -5,9 +5,10 @@ import { useEffect, useRef, useState } from "react";
 export default function Home() {
   const [username, setUsername] = useState<string>("");
   const [result, setResult] = useState({});
-  const [displayInfoCard, setDisplayInfoCard] = useState<boolean>(false);
+  const [displayInfoCard, setDisplayInfoCard] = useState<boolean | undefined>(
+    undefined
+  );
   const [isClear, setIsClear] = useState<boolean>(false);
-  const ref = useRef(null);
   let theme: string;
   if (typeof window !== "undefined") {
     theme = localStorage.getItem("theme")! || "dark";
@@ -21,11 +22,7 @@ export default function Home() {
     }
   }
 
-  const handleSearch = () => {
-    setUsername(ref.current.value);
-  };
-
-  const getData = async () => {
+  const handleSearch = async () => {
     try {
       const res = await fetch(`https://api.github.com/users/${username}`);
       if (res.status === 200) {
@@ -42,11 +39,14 @@ export default function Home() {
   };
 
   const handleChange = (e: any) => {
-    if (e.target.value) setIsClear(true);
+    if (e.target.value) {
+      setUsername(e.target.value);
+      setIsClear(true);
+    }
   };
 
   const handleClear = () => {
-    ref.current.value = "";
+    setUsername("");
     setIsClear(false);
   };
 
@@ -63,12 +63,12 @@ export default function Home() {
     }
   };
 
-  useEffect(() => {
-    if (username !== "") {
-      console.log("username", username);
-      getData();
-    }
-  }, [username]);
+  // useEffect(() => {
+  //   if (username !== "") {
+  //     console.log("username", username);
+  //     getData();
+  //   }
+  // }, [username]);
 
   return (
     <main>
@@ -86,9 +86,9 @@ export default function Home() {
         <SearchSection
           onChange={handleChange}
           onClick={handleSearch}
-          inputRef={ref}
           clearSearch={isClear}
           onClear={handleClear}
+          value={username}
         />
         {displayInfoCard && (
           <InfoCard
@@ -107,7 +107,7 @@ export default function Home() {
             username={result?.login}
           />
         )}
-        {username !== "" && !displayInfoCard && (
+        {displayInfoCard === false && (
           <div className="error">User not found</div>
         )}
       </div>

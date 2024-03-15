@@ -6,14 +6,15 @@ interface SearchSectionProps {
   inputRef: any;
   clearSearch: any;
   onClear: any;
+  value: any;
 }
 
 const SearchSection = ({
   onClick,
   onChange,
-  inputRef,
   clearSearch,
   onClear,
+  value,
 }: SearchSectionProps) => {
   return (
     <section className="search-section">
@@ -28,7 +29,7 @@ const SearchSection = ({
           className="search-section__input"
           placeholder="Search Github username..."
           onChange={onChange}
-          ref={inputRef}
+          value={value}
         ></input>
         {clearSearch && (
           <button onClick={onClear} className="search-delete-icon">
